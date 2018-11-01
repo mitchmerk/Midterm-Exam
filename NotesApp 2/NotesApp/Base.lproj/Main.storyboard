@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JfE-rh-sJR">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NotesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="c7a-IA-x7W">
+                                <rect key="frame" x="16" y="114" width="343" height="533"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="cZT-Ca-pOd" customClass="NoteCell" customModule="NotesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cZT-Ca-pOd" id="czC-oJ-hQq">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqO-M0-hcj">
+                                                    <rect key="frame" x="214" y="7" width="30" height="30"/>
+                                                    <state key="normal" title="Up"/>
+                                                    <connections>
+                                                        <action selector="didTapUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zxo-SF-vTr"/>
+                                                    </connections>
+                                                </button>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vM-eb-9Xt">
+                                                    <rect key="frame" x="264" y="7" width="39" height="30"/>
+                                                    <state key="normal" title="Down"/>
+                                                    <connections>
+                                                        <action selector="didTapDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dCQ-Mx-vqb"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4vM-eb-9Xt" secondAttribute="trailing" constant="25" id="4eu-Uf-z0T"/>
+                                                <constraint firstItem="4vM-eb-9Xt" firstAttribute="leading" secondItem="AqO-M0-hcj" secondAttribute="trailing" constant="20" id="LV6-GI-NDw"/>
+                                                <constraint firstItem="AqO-M0-hcj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="czC-oJ-hQq" secondAttribute="leading" constant="20" symbolic="YES" id="iMx-pU-OWC"/>
+                                                <constraint firstItem="AqO-M0-hcj" firstAttribute="baseline" secondItem="4vM-eb-9Xt" secondAttribute="baseline" id="tyb-G2-QrO"/>
+                                                <constraint firstItem="AqO-M0-hcj" firstAttribute="centerY" secondItem="czC-oJ-hQq" secondAttribute="centerY" id="zHC-hZ-hsP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="UpButton" destination="AqO-M0-hcj" id="VPH-ko-3hI"/>
+                                            <outlet property="downButton" destination="4vM-eb-9Xt" id="xqX-KF-52Q"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your note(s) here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F4C-oW-TPe">
+                                <rect key="frame" x="16" y="81" width="181" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="8U3-yi-tQf"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7t4-9w-bTh">
+                                <rect key="frame" x="196" y="75" width="163" height="36"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F4C-oW-TPe" firstAttribute="top" secondItem="7t4-9w-bTh" secondAttribute="top" id="0nu-89-Vcz"/>
+                            <constraint firstItem="7t4-9w-bTh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="MYH-LN-nHu"/>
+                            <constraint firstItem="F4C-oW-TPe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QZt-CH-eqk"/>
+                            <constraint firstItem="c7a-IA-x7W" firstAttribute="top" secondItem="F4C-oW-TPe" secondAttribute="bottom" constant="3" id="RCI-tk-keb"/>
+                            <constraint firstItem="F4C-oW-TPe" firstAttribute="bottom" secondItem="7t4-9w-bTh" secondAttribute="bottom" id="Rrj-pJ-qSn"/>
+                            <constraint firstItem="F4C-oW-TPe" firstAttribute="leading" secondItem="c7a-IA-x7W" secondAttribute="leading" id="THv-UL-QvJ"/>
+                            <constraint firstItem="7t4-9w-bTh" firstAttribute="trailing" secondItem="c7a-IA-x7W" secondAttribute="trailing" id="p79-61-TDC"/>
+                            <constraint firstItem="F4C-oW-TPe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="vea-7l-gku"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F4C-oW-TPe" secondAttribute="trailing" constant="178" id="vgG-kK-017"/>
+                            <constraint firstAttribute="bottom" secondItem="c7a-IA-x7W" secondAttribute="bottom" constant="20" symbolic="YES" id="vjn-vg-y5e"/>
+                            <constraint firstItem="7t4-9w-bTh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="196" id="yUz-R8-qR2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2UV-e4-EjF"/>
+                    <connections>
+                        <outlet property="myTable" destination="c7a-IA-x7W" id="IIG-bX-Tne"/>
+                        <outlet property="noteTextField" destination="F4C-oW-TPe" id="dKY-5r-rEm"/>
+                        <outlet property="priorityDropDown" destination="7t4-9w-bTh" id="vPT-Ij-VcU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9Z0-fx-bbe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JfE-rh-sJR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Eqs-Jw-iJl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5Yb-FL-yTY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gwD-w5-ang" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="115"/>
+        </scene>
+    </scenes>
+</document>
