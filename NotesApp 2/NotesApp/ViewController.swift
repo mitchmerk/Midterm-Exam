@@ -92,15 +92,15 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    class Note{
+    struct Note{
         let priority: Int = 0
         let message: String = ""
-        
+        /*
         init(self.priority,message){
             self.priority = priority
             self.message = message
         }
-        
+        */
         func getPriority() -> Int{
             return priority
         }
@@ -162,6 +162,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 		myTable.reloadData()
 	}
+    //------------------------------------------------------------------------------------------------------------------------------------------
 	/**
 	# didTapDown
 	This function is run anytime a User taps one of the down buttons on a TableView cell.
@@ -269,7 +270,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		
 		myTable.reloadData()
 	}
-	
+	//------------------------------------------------------------------------------------------------------------------------------------------
 	/**
 	insertNote
 	
@@ -299,7 +300,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		//if the note is empty, the view table is in editing mode, or a priority is not selected, this function will return
 		//without adding the note
 		
-		guard let note = noteTextField.text, goodToGo() else{
+		guard let _ = noteTextField.text, goodToGo() else{
 			print("Theres nothing to insert in this Note!!!")
 			return
 		}
@@ -321,7 +322,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 		return
 	}
-
+//------------------------------------------------------------------------------------------------------------------------------------------
 /**
 insertSingleNote
 
@@ -409,8 +410,7 @@ insertSingleNote
 	- Parameters : none
 	- Returns : none
 	
-	
-	- Pre-Condition:  List is Size n, there is text in the textField, and there are n filled rows on Screen
+	å	- Pre-Condition:  List is Size n, there is text in the textField, and there are n filled rows on Screen
 	- Post-Condition:  If the method call is valid, a new note is added to the data array and shown on screen, size is n+1
 	- Purpose: Adds a single Note to the list
 	- Notes: Needs exposure to Obj-C runtime to partake in the message dispatch required by Users interacting with the buttons
@@ -512,9 +512,24 @@ insertSingleNote
 		+/- 10 Lines of code
 		*************/
 		
+        guard trimmedNote.contains(",") else {
+            return
+        }
+        
+        var myArray = Array(trimmedNote.characters)
+        
+        
+        
+        
 		// this should be the last line of the loop
 				myTable.insertRows(at: [setIndexPath(methodName: "addNote")], with: .automatic)
 		
+        
+        
+        
+        
+        
+        
 		return
 		
 	}
